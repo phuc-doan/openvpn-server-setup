@@ -387,6 +387,14 @@ Kết nối vpn tới server
 ```
 - openvpn --config client01.ovpn
 ```
+
+
+![image](https://user-images.githubusercontent.com/83824403/180114311-f97160ff-0e70-4f4c-84ff-4129df523525.png)
+
+
+
+
+
 #### Trên window
 Download [Openvpn](https://openvpn.net/client-connect-vpn-for-windows/) client và import file config vào.
 
