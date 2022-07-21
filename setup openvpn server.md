@@ -8,14 +8,16 @@ VPN hay còn gọi là Virtual Private Network (mạng riêng ảo), cho phép n
 #### Remote Access VPN
 Remote Access VPNs cho phép truy cập bất cứ lúc nào bằng Remote, mobile, và các thiết bị truyền thông của nhân viên các chi nhánh kết nối đến tài nguyên mạng của tổ chức.
 Remote Access VPN mô tả việc các người dùng ở xa sử dụng các phần mềm VPN để truy cập vào mạng Intranet của công ty thông qua gateway hoặc VPN concentrator (bản chất là một server). Vì lý do này, giải pháp này thường được gọi là **Client to Site**. Trong giải pháp này, các người dùng thường thường sử dụng các công nghệ WAN truyền thống để tạo lại các tunnel về mạng HO của họ.
-![Client to site](image/Troubleshooting-diagram-1.png "VPN Client to Site")
+![image](https://user-images.githubusercontent.com/83824403/180114057-bbaa4c88-5e80-4af2-b81e-b4aac8771947.png)
+
 
 Dạng này thường áp dụng cho nhân viên làm việc lưu động hay làm việc ở nhà muốn kết nối vào mạng công ty một cách an toàn. Cũng có thể áp dụng cho văn phòng nhỏ ở xa kết nối vào Văn phòng trung tâm của công ty.
 Remote Access VPN còn được xem như là dạng Client to Site, cho phép người dùng ở xa dùng phần mềm VPN Client kết nối với VPN Server.
 
 #### VPN Site to Site
 Là mô hình dùng để kết nối các hệ thống mạng ở các nơi khác nhau tạo thành một hệ thống mạng thống nhất. Ở loại kết nối này thì việc chứng thực ban đầu phụ thuộc vào thiết bị đầu cuối ở các Site, các thiết bị này hoạt động như Gateway và đây là nơi đặt nhiều chính sách bảo mật nhằm truyền dữ liệu một cách an toàn giữa các Site.
-![Site to Site](image/layer-3-routing-diagram-step-1.png " VPN Site to Site")
+![image](https://user-images.githubusercontent.com/83824403/180113993-433cf070-3877-4343-a719-edf79f3ad1e9.png)
+
 
 Hoặc từ site có thể kết nối đến nhiều site gọi là site to multiple site bằng việc thiết lập các tunnel  từ server site đi đến các khác
 
@@ -35,9 +37,8 @@ và nó hoạt động với các gói lớp 2 như khung Ethernet. TUN mô ph�
 thiết bị lớp và nó hoạt động với các gói lớp 3 như gói IP
 ## OpenVPN Data Flow
 OpenVPN thực hiện những việc sau để bảo mật thông tin liên lạc:
-![tunnel](image/OpenVPN-Tunnel-between-two-end-points.png)
+![image](https://user-images.githubusercontent.com/83824403/180114147-52030586-0c1f-49e8-b1bd-64fad8ef70fb.png)
 
-![flow](image/OpenVPN-Data-Flow.png)
 - Nhận các gói lưu lượng đơn giản đi từ chương trình không gian người dùng bằng cách sử dụng
 VNI.
 - Sau khi nhận được các gói, nó sẽ nén các gói đã nhận bằng cách sử dụng nén Lempel-ZivOberhumer (LZO)
