@@ -5,16 +5,20 @@ VPN hay còn gọi là Virtual Private Network (mạng riêng ảo), cho phép n
 
 ## Một số dạng VPN
 
-#### Remote Access VPN
+### Remote Access VPN
+
 Remote Access VPNs cho phép truy cập bất cứ lúc nào bằng Remote, mobile, và các thiết bị truyền thông của nhân viên các chi nhánh kết nối đến tài nguyên mạng của tổ chức.
 Remote Access VPN mô tả việc các người dùng ở xa sử dụng các phần mềm VPN để truy cập vào mạng Intranet của công ty thông qua gateway hoặc VPN concentrator (bản chất là một server). Vì lý do này, giải pháp này thường được gọi là **Client to Site**. Trong giải pháp này, các người dùng thường thường sử dụng các công nghệ WAN truyền thống để tạo lại các tunnel về mạng HO của họ.
+
+
 ![image](https://user-images.githubusercontent.com/83824403/180114057-bbaa4c88-5e80-4af2-b81e-b4aac8771947.png)
 
 
 Dạng này thường áp dụng cho nhân viên làm việc lưu động hay làm việc ở nhà muốn kết nối vào mạng công ty một cách an toàn. Cũng có thể áp dụng cho văn phòng nhỏ ở xa kết nối vào Văn phòng trung tâm của công ty.
 Remote Access VPN còn được xem như là dạng Client to Site, cho phép người dùng ở xa dùng phần mềm VPN Client kết nối với VPN Server.
 
-#### VPN Site to Site
+### VPN Site to Site
+
 Là mô hình dùng để kết nối các hệ thống mạng ở các nơi khác nhau tạo thành một hệ thống mạng thống nhất. Ở loại kết nối này thì việc chứng thực ban đầu phụ thuộc vào thiết bị đầu cuối ở các Site, các thiết bị này hoạt động như Gateway và đây là nơi đặt nhiều chính sách bảo mật nhằm truyền dữ liệu một cách an toàn giữa các Site.
 ![image](https://user-images.githubusercontent.com/83824403/180113993-433cf070-3877-4343-a719-edf79f3ad1e9.png)
 
@@ -22,20 +26,27 @@ Là mô hình dùng để kết nối các hệ thống mạng ở các nơi kh�
 Hoặc từ site có thể kết nối đến nhiều site gọi là site to multiple site bằng việc thiết lập các tunnel  từ server site đi đến các khác
 
 ## OpenVPN là gì ?
+
+
 OpenVPN là một ứng dụng mã nguồn mở cho phép bạn tạo một mạng riêng an toàn qua internet công cộng. OpenVPN triển khai mạng riêng ảo (VPN) để tạo kết nối an toàn. OpenVPN Sử dụng thư viện OpenSSL để cung cấp mã hóa và nó cung cấp một số cơ chế xác thực, chẳng hạn như dựa trên chứng chỉ, khóa chia sẻ trước và xác thực tên người dùng / mật khẩu.
 
 ## Hoạt động của OpenVPN
-OpenVPN là giải pháp VPN không gian người dùng mã nguồn mở và miễn phí giúp tạo đường dẫn lưu lượng thông qua lớp truyền tải sử dụng giao thức TCP hoặc UDP để đóng gói và truyền dữ liệu. Nó sử dụng giao diện mạng ảo (VNI) để thu thập lưu lượng đến trước khi mã hóa và
+
+
+- OpenVPN là giải pháp VPN không gian người dùng mã nguồn mở và miễn phí giúp tạo đường dẫn lưu lượng thông qua lớp truyền tải sử dụng giao thức TCP hoặc UDP để đóng gói và truyền dữ liệu. Nó sử dụng giao diện mạng ảo (VNI) để thu thập lưu lượng đến trước khi mã hóa và
 gửi lưu lượng đi sau khi giải mã. Bảo mật trong OpenVPN được xử lý bởi OpenSSL
 thư viện mật mã cung cấp bảo mật mạnh mẽ qua Lớp cổng bảo mật (SSL) bằng cách sử dụng
-các thuật toán tiêu chuẩn như Tiêu chuẩn mã hóa nâng cao (AES),Blowfish, hoặc Triple DES (3DES). OpenVPN sử dụng một chế độ được gọi là Chuỗi khối mật mã (CBC) làm cho
-văn bản mật mã của khối hiện tại phụ thuộc vào văn bản mã của khối trước đó. Điều này ngăn cản kẻ tấn công nhìn thấy các mẫu giữa các khối với các thông điệp văn bản rõ ràng giống hệt nhau và thao tác một hoặc nhiều khối này.
 
-VNI xuất hiện dưới dạng giao diện mạng thực tế cho tất cả các ứng dụng và người dùng. Các gói đếnlưu lượng gửi qua VNI được chuyển đến một chương trình không gian người dùng gắn với VNI. Một không gian người dùng chương trình cũng có thể chuyển các gói vào một VNI. Trong trường hợp này, VNI đưa các gói này vào ngăn xếp mạng hệ điều hành để gửi nó đến vị trí được đề cập trong trường địa chỉ đích
+- các thuật toán tiêu chuẩn như Tiêu chuẩn mã hóa nâng cao (AES),Blowfish, hoặc Triple DES (3DES). OpenVPN sử dụng một chế độ được gọi là Chuỗi khối mật mã (CBC) làm cho văn bản mật mã của khối hiện tại phụ thuộc vào văn bản mã của khối trước đó. Điều này ngăn cản kẻ tấn công nhìn thấy các mẫu giữa các khối với các thông điệp văn bản rõ ràng giống hệt nhau và thao tác một hoặc nhiều khối này.
+
+- VNI xuất hiện dưới dạng giao diện mạng thực tế cho tất cả các ứng dụng và người dùng. Các gói đếnlưu lượng gửi qua VNI được chuyển đến một chương trình không gian người dùng gắn với VNI. Một không gian người dùng chương trình cũng có thể chuyển các gói vào một VNI. Trong trường hợp này, VNI đưa các gói này vào ngăn xếp mạng hệ điều hành để gửi nó đến vị trí được đề cập trong trường địa chỉ đích
 của các gói tin. TUN và TAP là mã nguồn mở VNI. TAP mô phỏng thiết bị Ethernet
 và nó hoạt động với các gói lớp 2 như khung Ethernet. TUN mô phỏng một mạng
 thiết bị lớp và nó hoạt động với các gói lớp 3 như gói IP
+
+
 ## OpenVPN Data Flow
+
 OpenVPN thực hiện những việc sau để bảo mật thông tin liên lạc:
 ![image](https://user-images.githubusercontent.com/83824403/180114147-52030586-0c1f-49e8-b1bd-64fad8ef70fb.png)
 
@@ -51,10 +62,16 @@ hoạt động mật mã để xác minh tính toàn vẹn, tính xác thực, v
 - Sau khi hoàn thành thành công các hoạt động mật mã đảo ngược, nó giải nén
 gói tin.
 - Gói giải nén sau đó được chuyển qua VNI đến chương trình không gian người dùng.
+
+
 ## Điều kiện yêu cầu
-- Centos 7.6
+
+- Centos 7.7
 - Root privileges
+- 
 ## Các bước cài đặt
+
+
 - Install OpenVPN and Easy-RSA
 - Configure Easy-RSA 3 Vars
 - Build OpenVPN Keys
@@ -62,35 +79,39 @@ gói tin.
 - Configure Firewalld and Enable Port Forwarding
 - Client Setup
 - Testing
+
+
 ## Bước 1: Cài đặt OpenVPN và Easy-RSA
 #### Enable epel repository
 ```
-- yum install epel-release -y
+yum install epel-release -y
 ```
 #### Cài openvpn và easyrsa
 ```
-- yum install openvpn easy-rsa -y
+yum install openvpn easy-rsa -y
 ```
 #### Kiểm tra phiên bản Openvpn vaf EasyRSA
 ```
-- openvpn --version
-- ls -lah /usr/share/easy-rsa/
+ openvpn --version
+ ls -lah /usr/share/easy-rsa/
 ```
 ## Bước 2: Cấu hình EasyRSA 3
 Trong bước này chúng ta sẽ cấu hình easy-rsa tạo file vars. File vars chứa các thông tin cài đặt EasyRSA 3. Tiếp theo đi đến thư mục /etc/openvpn/ và copy easy-rsa script.
 #### Copy easy-rsa vào thư mục /etc/openvpn/
 ```
-- cd /etc/openvpn/
-- cp -r /usr/share/easy-rsa /etc/openvpn/
+cd /etc/openvpn/
+cp -r /usr/share/easy-rsa /etc/openvpn/
 ```
 
 #### Tạo file vars chứa thông tin cài đặt Easy-RSA
 ```
-- cd /etc/openvpn/easy-rsa/3/
-- vim vars
+cd /etc/openvpn/easy-rsa/3/
+vim vars
 ```
 
-######## Copy vào file vars theo thông tin dưới đây:
+-  Copy vào file vars theo thông tin dưới đây:
+
+
 ```
 set_var EASYRSA                 "$PWD"
 set_var EASYRSA_PKI             "$EASYRSA/pki"
@@ -112,38 +133,46 @@ set_var EASYRSA_SSL_CONF        "$EASYRSA/openssl-1.0.cnf"
 set_var EASYRSA_DIGEST          "sha256"
 ```
 
-Sau đó lưu và thoát. Ấn Esc sau đó :wq!.
+- Điển hình trông như sau:
+
+![image](https://user-images.githubusercontent.com/83824403/180114708-a91bb2e5-00e8-4089-92df-a621791c1c6b.png)
+
 
 #### Thêm quyền cho file vars được phép thực thi.
 ```
-- chmod +x vars
+chmod +x vars
 ```
 ## Bước 3: Tạo keys cho OpenVPN
 Trong bước này chúng ta sẽ tạo key cho OpenVPN dựa trên easy-rsa và file 'vars' đã được tạo.
 Chúng ta sẽ tạo CA keys, Server và Client keys, DH và CRL PEM file
 Chúng ta sẽ build tất cả các keys trên sử dụng câu lệnh easyrsa:
 ```
-- cd /etc/openvpn/easy-rsa/3/
+cd /etc/openvpn/easy-rsa/3/
 ```
 #### Khởi tạo và xây dựng CA
 Trước khi tạo mọi loại keys, chúng ta cần khởi tạo thư mục PKI và xây dựng CA.
 ```
-- ./easyrsa init-pki
-- ./easyrsa build-ca
+./easyrsa init-pki
+./easyrsa build-ca
 ```
 Nhập password cho CA key và chúng ta có thể lấy ca.crt và ca.key trong thư mục PKI
 #### Tạo Server key
 Tạo server với tên ví dụ 'vccloud-server' sử dụng câu lệnh dưới đây
 ```
-- ./easyrsa gen-req vccloud-server nopass
+ ./easyrsa gen-req vccloud-server nopass
 ```
 nopass = tùy chọn vô hiệu hóa mật khẩu cho vccloud-server
 Tiếp theo assign vccloud-server sử dụng CA certificate.
 ```
-- ./easyrsa sign-req server vccloud-server
+./easyrsa sign-req server vccloud-server
 ```
 Sau đó Enter và chúng ta có thể lấy vccloud-server.crt trong thư mục pki/issued/
 Kiểm tra certificate file sử dụng câu lệnh OpenSSL và để đảm bảo rằng nó không bị lỗi
+
+![image](https://user-images.githubusercontent.com/83824403/180115103-18b7922f-bda7-44b6-bdaf-98a04670a497.png)
+
+
+
 
 #### Tạo Client key
 Để tạo key cho client. Chúng sẽ tạo key mới với tên 'client01'
@@ -153,17 +182,17 @@ Kiểm tra certificate file sử dụng câu lệnh OpenSSL và để đảm b�
 ```
 Bây giờ để sign client01 sử dụng CA certificate như cách bên dưới:
 ```
-- ./easyrsa sign-req client client01
+ ./easyrsa sign-req client client01
 ```
 Sau đó xác nhận bằng 'yes'. Sau đó kiểm tra lại sử dụng OpenSSL command:
 ```
-- openssl verify -CAfile pki/ca.crt pki/issued/client01.crt
+ openssl verify -CAfile pki/ca.crt pki/issued/client01.crt
 ```
 #### Tạo Diffie-Hellman Key
 Việc này sẽ làm tốn một chút thời gian tùy thuộc vào độ dài có sẵn trên server.
 Để tạo Diffie-Hellman key sử dụng câu lệnh sau:
 ```
-- ./easyrsa gen-dh
+ ./easyrsa gen-dh
 ```
 DH key sẽ được tạo trong thư mục pki
 
@@ -180,6 +209,11 @@ clientkey = tên của một client key nào đó ví dụ 'client01'
 ```
 ./easyrsa gen-crl
 ```
+
+
+![image](https://user-images.githubusercontent.com/83824403/180115233-502d4a21-a6b4-41a6-be59-4b09bb683fae.png)
+
+
 
 CRL PEM sau khi tạo sẽ được để trong PKI
 
@@ -268,6 +302,9 @@ verb 3
 ```
 
 
+![image](https://user-images.githubusercontent.com/83824403/180115389-b42c0d00-a1b3-4009-a430-a0b07890bbe1.png)
+
+
 Sau đó lưu lại bấm Esc và :wq!
 
 ## Bước 5: Enable Port-Forwarding
@@ -291,6 +328,8 @@ systemctl start openvpn@server
 systemctl enable openvpn@server
 ```
 
+![image](https://user-images.githubusercontent.com/83824403/180115518-93d47a4c-e4ab-42ad-a5fd-bbe3cd2a1cd3.png)
+
 
 #### Sử dụng câu lệnh bên dưới để kiểm lại:
 ```
@@ -298,20 +337,20 @@ systemctl enable openvpn@server
 - systemctl status openvpn@server
 ```
 ## Bước 6 Setup file Openvpn client
- Đi đến thư mục /etc/openvpn/client/ sử dụng vim tạo một file config openvpn client 'client01.ovpn'
+ - Đi đến thư mục /etc/openvpn/client/ sử dụng vim tạo một file config openvpn client 'client01.ovpn'
 ```
-- cd /etc/openvpn/client
-- vim client01.ovpn
+cd /etc/openvpn/client
+vim client01.ovpn
 ```
 
-Với nội dung bên dưới:
+- Với nội dung bên dưới:
 
 ```
 client
 dev tun
 proto udp
 
-remote 10.3.52.213 1194
+remote 10.5..10.3 1194
 
 ca ca.crt
 cert client01.crt
@@ -332,8 +371,10 @@ mute-replay-warnings
 verb 3
 ```
 
-ở đây 10.3.52.213 là ip của interface external của server.
-Sau đó lưu và thoát. Bấm Esc và :wq!
+ở đây 10.5.10.3 là ip của interface external của server.
+
+![image](https://user-images.githubusercontent.com/83824403/180115655-80826d9a-26b5-4439-ac0c-350495b23830.png)
+
 
 Tiếp theo chúng ta sẽ nén file /etc/openvpn/client lại và sử dụng scp để copy tới máy local
 ```
@@ -341,28 +382,36 @@ Tiếp theo chúng ta sẽ nén file /etc/openvpn/client lại và sử dụng s
 - tar -czvf client01.tar.gz client/*
 ```
 
-###### Để cho phép client có thể chạm đến nhau thì thêm vào file cấu hình /etc/openvpn/server.conf
+#### Để cho phép client có thể chạm đến nhau thì thêm vào file cấu hình /etc/openvpn/server.conf
+```
 client-to-client
+```
 
-###### Quảng cáo mạng LAN của Server tới Client
-Quảng cáo mạng LAN đằng sau VPN Server rất đơn giản. Chỉ cần thêm dòng này vào tệp cấu hình máy chủ trên máy chủ.
-- push "route 192.168.200.0 255.255.255.0"
-###### Quảng cáo mạng LAN của Client tới Server
-Quảng cáo mạng con LAN của Client đến Server cần nhiều bước hơn, nhưng vẫn khá dễ dàng và được thực hiện theo hai phần:
+#### Quảng cáo mạng LAN của Server tới Client
+- Quảng cáo mạng LAN đằng sau VPN Server rất đơn giản. Chỉ cần thêm dòng này vào tệp cấu hình máy chủ trên máy chủ.
+```
+push "route 192.168.200.0 255.255.255.0"
+```
+
+#### Quảng cáo mạng LAN của Client tới Server
+- Quảng cáo mạng con LAN của Client đến Server cần nhiều bước hơn, nhưng vẫn khá dễ dàng và được thực hiện theo hai phần:
 Trong phần đầu tiên, trên server, chúng ta sẽ tạo một thư mục con có tên là ccd, viết tắt của thư mục cấu hình client trong OpenVPN.
-Sử dựng câu lệnh sau đây:
+
+- Sử dựng câu lệnh sau đây:
+
 ```
-- cd /etc/openvpn
-- mkdir ccd
-- cd ccd
-- touch client
-- echo “iroute 192.168.40.128 255.255.255.248” > client
+ cd /etc/openvpn
+ mkdir ccd
+ cd ccd
+ touch client
+ echo “iroute 192.168.40.128 255.255.255.248” > client
 ```
-Phần thứ hai bao gồm các thay đổi phải được thực hiện trong tệp cấu hình máy chủ. 
+
+- Phần thứ hai bao gồm các thay đổi phải được thực hiện trong tệp cấu hình máy chủ. 
 Thêm các dòng sau vào file cấu hình chính openvpn /etc/openvpn/server.conf
 
 ```
- client-config-dir ccd
+client-config-dir ccd
 route 192.168.40.128 255.255.255.248
 ```
 
@@ -371,21 +420,25 @@ route 192.168.40.128 255.255.255.248
 
 #### Trên Linux
 
-Cài OpenVPN package và OpenVPN network manager
+- Cài OpenVPN package và OpenVPN network manager
+
 ```
-- sudo apt install openvpn network-manager-openvpn -y
+ sudo apt install openvpn network-manager-openvpn -y
 ```
-Sau đó copy tới client
+- Sau đó copy tới client
+
 ```
-- scp root@ipclient:/etc/openvpn/client01.tar.gz .
+ scp root@ipclient:/etc/openvpn/client01.tar.gz .
 ```
-Giải nén 
+- Giải nén 
+
 ```
-- tar -xzvf client01.tar.gz
+tar -xzvf client01.tar.gz
 ```
-Kết nối vpn tới server
+- Kết nối vpn tới server
+
 ```
-- openvpn --config client01.ovpn
+ openvpn --config client01.ovpn
 ```
 
 
