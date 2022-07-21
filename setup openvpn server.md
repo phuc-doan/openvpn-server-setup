@@ -66,9 +66,9 @@ gói tin.
 
 ## Điều kiện yêu cầu
 
-- Centos 7.7
+- Centos 7
 - Root privileges
-- 
+
 ## Các bước cài đặt
 
 
@@ -218,7 +218,7 @@ clientkey = tên của một client key nào đó ví dụ 'client01'
 CRL PEM sau khi tạo sẽ được để trong PKI
 
 #### Copy Certificate files
-###### Copy server key và certificate
+#### Copy server key và certificate
 
 ```
 cp pki/ca.crt /etc/openvpn/server/
